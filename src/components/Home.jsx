@@ -124,7 +124,7 @@ import { useState, useEffect } from 'react';
 import { ethers } from "ethers";
 import Info from './Info';
 
-const Home = ({ marketplace , account }) => {
+const Home = ({ marketplace, account }) => {
   useEffect(() => {
     document.title = "Home";
   }, []);
@@ -166,12 +166,12 @@ const Home = ({ marketplace , account }) => {
     const response = await marketplace.seeNFT(item.itemId);
     const uri = await response.wait(); // Wait for the transaction to complete
 
-    const links=await marketplace.tokenURI(item.itemId);
-    console.log("Links",links);
-    const responses=await fetch(links);
+    const links = await marketplace.tokenURI(item.itemId);
+    console.log("Links", links);
+    const responses = await fetch(links);
     // console.log("Result",result);
-    const result=await responses.json();
-    console.log("Result",result);
+    const result = await responses.json();
+    console.log("Result", result);
     setToggle(true); // Set toggle to true to show Info component
     // loadMarketplaceItems();
     setNftitem(result);
@@ -187,55 +187,56 @@ const Home = ({ marketplace , account }) => {
 
   return (
     <>
-  {toggle ? (
-    <Info Changestate={() => setToggle(false)} nftitem={nftitem} />
-  ) : (
-    <div className="flex justify-center">
-      {items.length > 0 ? (
-        <div className="container mx-auto mt-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {items.map((item, idx) => (
-              <div key={idx} className="bg-gray-100 rounded-lg shadow-md dark:bg-gray-800 hover:transform hover:scale-105 transition-transform duration-300">
-                <img
-                  className="rounded-t-lg object-cover w-full h-56"
-                  src={item.image}
-                  alt="flower"
-                />
-                <div className="p-4">
-                  <h5 className="text-xl font-semibold text-blue-600 dark:text-blue-400">{item.name}</h5>
-                  <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
-                    <strong>1 AVAX</strong>
-                  </p>
-                  <button onClick={() => viewMarketItem(item)} className="mt-4 w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-blue-600 border border-transparent rounded-lg active:bg-blue-700 hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue">
-                    Open
-                    <svg
-                      className="rtl:rotate-180 w-4 h-4 inline-block ml-2 -mt-px"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 14 10"
-                      fill="none"
-                    >
-                      <path
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M1 5h12m0 0L9 1m4 4L9 9"
-                      />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+      {toggle ? (
+        <Info Changestate={() => setToggle(false)} nftitem={nftitem} />
       ) : (
-        <main className="container mx-auto mt-8">
-          <h2 className="text-center text-xl font-semibold text-gray-800 dark:text-white">Loading</h2>
-        </main>
+        <div className="flex justify-center min-h-screen">
+          {items.length > 0 ? (
+            <div className="container mx-auto mt-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                {items.map((item, idx) => (
+                  <div key={idx} className="bg-gray-100 rounded-lg shadow-md dark:bg-gray-800 hover:transform hover:scale-105 transition-transform duration-300">
+                    <img
+                      className="rounded-t-lg object-cover w-full h-56"
+                      src={item.image}
+                      alt="flower"
+                    />
+                    <div className="p-4">
+                      <h5 className="text-xl font-semibold text-blue-600 dark:text-blue-400">{item.name}</h5>
+                      <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+                        <strong>1 AVAX</strong>
+                      </p>
+                      <button onClick={() => viewMarketItem(item)} className="mt-4 w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-transform transform duration-300 bg-gradient-to-r from-blue-500 to-purple-600 border border-transparent rounded-lg shadow-lg hover:scale-105 hover:from-blue-600 hover:to-purple-700 focus:outline-none focus:ring-4 focus:ring-blue-300">
+                        Open
+                        <svg
+                          className="rtl:rotate-180 w-4 h-4 inline-block ml-2 -mt-px"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 14 10"
+                          fill="none"
+                        >
+                          <path
+                            stroke="currentColor"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M1 5h12m0 0L9 1m4 4L9 9"
+                          />
+                        </svg>
+                      </button>
+
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ) : (
+            <main className="container mx-auto mt-8">
+              <h2 className="text-center text-xl font-semibold text-gray-800 dark:text-white">Loading</h2>
+            </main>
+          )}
+        </div>
       )}
-    </div>
-  )}
-</>
+    </>
 
 
 

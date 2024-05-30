@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Hero from './components/Home.jsx';
 import Create from './components/Create.jsx';
 import Nav from './components/Nav.jsx';
+import First from './components/First.js';
 
 function App() {
 
@@ -80,7 +81,8 @@ function App() {
           {
             loading ? (<div>Connecting to Metamask</div>) : (
               <Routes>
-                <Route path='/' element={<Hero marketplace={marketplace} nftItem={nftItem} account={account} />} />
+              <Route path='/' element={<First />}/>
+                <Route path='/home' element={<Hero marketplace={marketplace} nftItem={nftItem} account={account} />} />
                 <Route path='/create' element={<Create marketplace={marketplace} />} />
                 {/* <Route path='/my-listed-nfts' element={<MyItem marketplace={marketplace} account={account} />} /> */}
                 {/* <Route path='/my-purchases' element={<MyPurchases marketplace={marketplace} nft={nft} account={account} />} /> */}

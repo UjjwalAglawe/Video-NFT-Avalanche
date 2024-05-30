@@ -62,13 +62,30 @@ body {
 .gradient-bg-welcome {
   background-color:#0f0e13;
   background-image: 
-    radial-gradient(at 0% 0%, hsla(253,16%,7%,0.5) 0, transparent 50%), 
-    radial-gradient(at 50% 0%, hsla(225,39%,30%,0.5) 0, transparent 50%), 
-    radial-gradient(at 100% 0%, hsla(339,49%,30%,0.5) 0, transparent 50%);
+    radial-gradient(at 0% 0%, hsla(250, 92%, 63%, 0.5) 0, transparent 50%), 
+    radial-gradient(at 50% 0%, hsla(225, 33%, 31%, 0.5) 0, transparent 50%), 
+    radial-gradient(at 100% 0%, hsla(245, 27%, 17%, 0.5) 0, transparent 50%);
+}
+
+
+.nav-gradient-border {
+  border: 2px solid;
+  border-image: radial-gradient(at 0% 0%, hsla(250, 92%, 63%, 0.5) 0, transparent 50%), 
+                radial-gradient(at 50% 0%, hsla(225, 33%, 31%, 0.5) 0, transparent 50%), 
+                radial-gradient(at 100% 0%, hsla(245, 27%, 17%, 0.5) 0, transparent 50%);
+  border-image-slice: 1;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.nav-gradient-border:hover {
+  border-image: radial-gradient(at 0% 0%, hsla(250, 92%, 73%, 0.5) 0, transparent 50%), 
+                radial-gradient(at 50% 0%, hsla(225, 33%, 41%, 0.5) 0, transparent 50%), 
+                radial-gradient(at 100% 0%, hsla(245, 27%, 27%, 0.5) 0, transparent 50%);
+  border-image-slice: 1;
 }
 
 /* Additional styles to prevent the navbar from being in the middle of the screen */
-main {
+/* main {
   flex-grow: 1;
   width: 100%;
-}
+} */

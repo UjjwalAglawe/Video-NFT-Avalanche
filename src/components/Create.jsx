@@ -153,8 +153,8 @@ const Create = ({ marketplace }) => {
     (
       <div className="min-h-screen flex justify-center items-center">
   <main className="container mx-auto px-4">
-    <div className="content text-white shadow-lg rounded-lg border-2 p-5 bg-gradient-to-r from-gray-800 via-gray-700 to-gray-600">
-      <div className="space-y-8">
+    <div className="content text-white shadow-lg rounded-lg p-5 flex flex-col items-center">
+      <div className="space-y-8 w-full max-w-[500px]">
         <Row className="g-4">
           <Form.Group>
             <Form.Label className="text-lg">Upload Thumbnail Image</Form.Label>
@@ -164,6 +164,7 @@ const Create = ({ marketplace }) => {
               name="image"
               accept="image/*" // Only accept image files
               onChange={(event) => changeHandler(event, 'image')}
+              className="max-w-[500px] w-full"
             />
           </Form.Group>
           <Form.Group>
@@ -174,6 +175,7 @@ const Create = ({ marketplace }) => {
               name="video"
               accept="video/*" // Only accept video files
               onChange={(event) => changeHandler(event, 'video')}
+              className="max-w-[500px] w-full"
             />
           </Form.Group>
           <Form.Control
@@ -184,7 +186,7 @@ const Create = ({ marketplace }) => {
             required
             type="text"
             placeholder="Name"
-            className="text-lg"
+            className="text-lg max-w-[200px] w-full"
           />
           <Form.Control
             onChange={handleChange}
@@ -194,7 +196,7 @@ const Create = ({ marketplace }) => {
             required
             as="textarea"
             placeholder="Description"
-            className="text-lg"
+            className="text-lg max-w-[200px] w-full"
           />
           <Form.Control
             onChange={handleChange}
@@ -204,10 +206,10 @@ const Create = ({ marketplace }) => {
             required
             type="number"
             placeholder="Price in AVAX"
-            className="text-lg"
+            className="text-lg max-w-[200px] w-full"
           />
           <div className="flex justify-center">
-            <Button onClick={handleEvent} variant="primary" size="lg">
+            <Button onClick={handleEvent} variant="primary" size="lg" className="inline-block rounded-full border-2 border-primary px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-primary transition duration-150 ease-in-out hover:border-primary-accent-300 hover:bg-primary-50/50 hover:text-primary-accent-300 focus:border-primary-600 focus:bg-primary-50/50 focus:text-primary-600 focus:outline-none focus:ring-0 active:border-primary-700 active:text-primary-700 motion-reduce:transition-none dark:text-primary-500 dark:hover:bg-blue-950 dark:focus:bg-blue-950 text-white">
               Create NFT!
             </Button>
           </div>
@@ -216,6 +218,7 @@ const Create = ({ marketplace }) => {
     </div>
   </main>
 </div>
+
 
     )
   );
